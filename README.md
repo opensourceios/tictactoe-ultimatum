@@ -1,2 +1,3 @@
-# tictactoe-ultimatum
-Ultimate TicTacToe iOS app in Swift
+# Tictactoe Ultimatum
+
+An iOS app in Swift implementing the classic game of Ultimate Tic Tac Toe.
