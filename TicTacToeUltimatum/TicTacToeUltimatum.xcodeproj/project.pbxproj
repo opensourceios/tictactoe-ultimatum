@@ -18,6 +18,9 @@
 		50336B5B228E40D90029268E /* AI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50336B5A228E40D90029268E /* AI.swift */; };
 		50336B5D228E44A60029268E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50336B5C228E44A60029268E /* SettingsViewController.swift */; };
 		50336B5F228E44BA0029268E /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50336B5E228E44BA0029268E /* RulesViewController.swift */; };
+		50E5BCAD2290AB010039AEEC /* MonteCarloTreeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5BCAC2290AB010039AEEC /* MonteCarloTreeSearch.swift */; };
+		50E5BCAE2290ACF90039AEEC /* MonteCarloTreeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5BCAC2290AB010039AEEC /* MonteCarloTreeSearch.swift */; };
+		50E5BCAF2290AD120039AEEC /* BoardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50336B58228E40C30029268E /* BoardState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,7 @@
 		50336B5A228E40D90029268E /* AI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI.swift; sourceTree = "<group>"; };
 		50336B5C228E44A60029268E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		50336B5E228E44BA0029268E /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
+		50E5BCAC2290AB010039AEEC /* MonteCarloTreeSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonteCarloTreeSearch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 				50336B5A228E40D90029268E /* AI.swift */,
 				50336B5C228E44A60029268E /* SettingsViewController.swift */,
 				50336B5E228E44BA0029268E /* RulesViewController.swift */,
+				50E5BCAC2290AB010039AEEC /* MonteCarloTreeSearch.swift */,
 			);
 			path = TicTacToeUltimatum;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 				50336B5B228E40D90029268E /* AI.swift in Sources */,
 				5020FB95228E24600027C675 /* AppDelegate.swift in Sources */,
 				50336B5D228E44A60029268E /* SettingsViewController.swift in Sources */,
+				50E5BCAD2290AB010039AEEC /* MonteCarloTreeSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +232,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50E5BCAF2290AD120039AEEC /* BoardState.swift in Sources */,
 				5020FBAA228E24600027C675 /* TicTacToeUltimatumTests.swift in Sources */,
+				50E5BCAE2290ACF90039AEEC /* MonteCarloTreeSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

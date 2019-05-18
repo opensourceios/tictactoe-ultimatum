@@ -32,6 +32,15 @@ func makeColor(_ red: Int, _ green: Int, _ blue: Int) -> CGColor {
         ).cgColor
 }
 
+
+let xBgColor = makeColor(212, 229, 247) // lighter version of FG color
+let xColor = makeColor(28, 134, 238) // dodgerblue2
+let oColor = makeColor(255, 127, 0) // darkorange1
+let oBgColor = makeColor(255, 217, 179) // lighter version of FG color
+let finalStrikeColor = makeColor(255, 0, 0) // just make it red for now
+
+
+
 class BoardView: UIView {
     var boardState: BoardState?
     var indicator: UIActivityIndicatorView?
@@ -73,31 +82,28 @@ class BoardView: UIView {
     
     func calcCenter() -> CGPoint {
         let c = self.center
-        let x = c.x - 10.0
-        let y = c.y - 100.0
+        let x = c.x - hOffset
+        let y = c.y - vOffset
         return CGPoint(x: x, y: y)
     }
     
     
     override func draw(_ rect: CGRect) {
-        let draw = Draw(
-            UIGraphicsGetCurrentContext()!,
-            rect,
-            boardState!
-        )
+        guard let boardState = boardState else {
+            return
+        }
         
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return
+        }
+        
+        let draw = Draw(context, rect, boardState)
         draw.draw()
         activityIndicator()
     }
     
     
     class Draw {
-        let xBgColor: CGColor
-        let oBgColor: CGColor
-        let xColor: CGColor
-        let oColor: CGColor
-        let finalStrikeColor: CGColor
-        
         let context: CGContext
         let rect: CGRect
         let boardState: BoardState
@@ -107,18 +113,13 @@ class BoardView: UIView {
             context = c
             rect = r
             boardState = bs
-            
-            xBgColor = makeColor(212, 229, 247) // lighter version of FG color
-            xColor = makeColor(28, 134, 238) // dodgerblue2
-            oColor = makeColor(255, 127, 0) // darkorange1
-            oBgColor = makeColor(255, 217, 179) // lighter version of FG color
-            finalStrikeColor = makeColor(255, 0, 0) // just make it red for now
         }
         
         
         func draw() {
             fillWhite()
             allowedSegments()
+            mostRecentCell()
             positions()
             lightLines()
             winners()
@@ -133,8 +134,30 @@ class BoardView: UIView {
         }
         
         
+        func mostRecentCell() {
+            if boardState.mostRecent >= 0 && boardState.mostRecent <= 80 {
+                if boardState.player == NOUG {
+                    context.setFillColor(xBgColor)
+                }
+                else {
+                    context.setFillColor(oBgColor)
+                }
+                
+                let size = rect.height/9.0
+                let x = boardState.mostRecent % 9
+                let y = boardState.mostRecent / 9
+                
+                let x1 = rect.minX + CGFloat(x)*size
+                let y1 = rect.minY + CGFloat(y)*size
+                
+                let rect1 = CGRect(x: x1, y: y1, width: size, height: size)
+                context.fill(rect1)
+            }
+        }
+        
+        
         func allowedSegments() {
-            if boardState.player == 1 {
+            if boardState.player == CROS {
                 context.setFillColor(xBgColor)
             }
             else {

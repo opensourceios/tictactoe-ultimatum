@@ -31,4 +31,11 @@ class TicTacToeUltimatumTests: XCTestCase {
         }
     }
 
+    
+    func testCalcBestOpeningMove() {
+        let boardState = BoardState()
+        let aiEngine = MonteCarloTreeSearch(boardState)
+        let result = aiEngine.basic(10000)
+        print(result)
+    }
 }

@@ -26,7 +26,7 @@ let NOUG = 2
 let DONE = 3
 
 
-class BoardState {
+final class BoardState {
     
     
     var cells: [Int] // OPEN, CROS, NOUG
@@ -37,6 +37,7 @@ class BoardState {
     var finalStrikeStart = -1
     var finalStrikeEnd = -1
     var player: Int
+    var mostRecent: Int = 100
     
     
     
@@ -115,13 +116,14 @@ class BoardState {
             return false
         }
         
-        let i = y*9 + x
-        let clickSegment = ownSection(x, y)
+        let cell = y*9 + x
+        let section = ownSection(x, y)
+        mostRecent = cell
         
         // set position
-        cells[i] = player
-        if won(player, clickSegment) {
-            closedSegments[clickSegment] = player
+        cells[cell] = player
+        if won(player, section) {
+            closedSegments[section] = player
             if entireGameWonBy(player) {
                 gameWon = player
             }
@@ -129,8 +131,8 @@ class BoardState {
                 gameWon = DONE
             }
         }
-        else if full(clickSegment) {
-            closedSegments[clickSegment] = DONE
+        else if full(section) {
+            closedSegments[section] = DONE
             if entireBoardIsFull() {
                 gameWon = DONE
             }
@@ -143,8 +145,8 @@ class BoardState {
         }
         
         if gameWon == OPEN {
-            let nextSegment = targetSection(x, y)
-            if segmentClosed(nextSegment) {
+            let nextSection = targetSection(x, y)
+            if segmentClosed(nextSection) {
                 for i in 0..<9 {
                     if !segmentClosed(i) {
                         allowedSegments[i] = true
@@ -152,7 +154,7 @@ class BoardState {
                 }
             }
             else {
-                allowedSegments[nextSegment] = true
+                allowedSegments[nextSection] = true
             }
         }
         

@@ -19,7 +19,7 @@
 
 import Foundation
 
-class AI {
+final class AI {
     let givenBoardState: BoardState
     let aiLevelKey = "aiLevelKey"
     
@@ -73,11 +73,6 @@ class AI {
     
     
     func basicMonteCarloTreeSearch(_ aiLevel: Int) -> (Int, Int) {
-        let moves = givenBoardState.allLegalMoves()
-        let whoami = givenBoardState.player
-        
-        var counts: [Double] = Array(repeating: 0.0, count: moves.count)
-        
         let aiIterations: Int
         switch aiLevel {
         case 1: aiIterations = 100
@@ -87,39 +82,8 @@ class AI {
         default: aiIterations = 100
         }
         
-        for _ in 0..<aiIterations {
-            for i in 0..<counts.count {
-                let (x, y) = moves[i]
-                let child = givenBoardState.clone()
-                _ = child.set(x, y)
-                let res = playout(child)
-                if res == whoami {
-                    counts[i] += 1.0
-                }
-                else if res == DONE {
-                    counts[i] += 0.5
-                }
-            }
-        }
-        
-        let maxCount = counts.max()!
-        let maxIndex = counts.firstIndex(of: maxCount)!
-        return moves[maxIndex]
-    }
-    
-    
-    func playout(_ state: BoardState) -> Int {
-        while !state.isTerminal() {
-            let moves = state.allLegalMoves()
-            if moves.count == 0 {
-                break
-            }
-            let index = Int.random(in: 0..<moves.count)
-            let (x, y) = moves[index]
-            _ = state.set(x, y)
-        }
-        
-        return state.gameWon
+        let aiEngine = MonteCarloTreeSearch(givenBoardState)
+        return aiEngine.basic(aiIterations)
     }
     
 }
