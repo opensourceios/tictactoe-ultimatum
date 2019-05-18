@@ -13,6 +13,11 @@
 		5020FB9C228E24600027C675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5020FB9B228E24600027C675 /* Assets.xcassets */; };
 		5020FB9F228E24600027C675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5020FB9D228E24600027C675 /* LaunchScreen.storyboard */; };
 		5020FBAA228E24600027C675 /* TicTacToeUltimatumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5020FBA9228E24600027C675 /* TicTacToeUltimatumTests.swift */; };
+		50336B57228E40AD0029268E /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50336B56228E40AD0029268E /* BoardView.swift */; };
+		50336B59228E40C30029268E /* BoardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50336B58228E40C30029268E /* BoardState.swift */; };
+		50336B5B228E40D90029268E /* AI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50336B5A228E40D90029268E /* AI.swift */; };
+		50336B5D228E44A60029268E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50336B5C228E44A60029268E /* SettingsViewController.swift */; };
+		50336B5F228E44BA0029268E /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50336B5E228E44BA0029268E /* RulesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,11 @@
 		5020FBA5228E24600027C675 /* TicTacToeUltimatumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeUltimatumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5020FBA9228E24600027C675 /* TicTacToeUltimatumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeUltimatumTests.swift; sourceTree = "<group>"; };
 		5020FBAB228E24600027C675 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50336B56228E40AD0029268E /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		50336B58228E40C30029268E /* BoardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardState.swift; sourceTree = "<group>"; };
+		50336B5A228E40D90029268E /* AI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI.swift; sourceTree = "<group>"; };
+		50336B5C228E44A60029268E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		50336B5E228E44BA0029268E /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +93,11 @@
 				5020FB9B228E24600027C675 /* Assets.xcassets */,
 				5020FB9D228E24600027C675 /* LaunchScreen.storyboard */,
 				5020FBA0228E24600027C675 /* Info.plist */,
+				50336B56228E40AD0029268E /* BoardView.swift */,
+				50336B58228E40C30029268E /* BoardState.swift */,
+				50336B5A228E40D90029268E /* AI.swift */,
+				50336B5C228E44A60029268E /* SettingsViewController.swift */,
+				50336B5E228E44BA0029268E /* RulesViewController.swift */,
 			);
 			path = TicTacToeUltimatum;
 			sourceTree = "<group>";
@@ -197,8 +212,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50336B5F228E44BA0029268E /* RulesViewController.swift in Sources */,
+				50336B59228E40C30029268E /* BoardState.swift in Sources */,
+				50336B57228E40AD0029268E /* BoardView.swift in Sources */,
 				5020FB97228E24600027C675 /* ViewController.swift in Sources */,
+				50336B5B228E40D90029268E /* AI.swift in Sources */,
 				5020FB95228E24600027C675 /* AppDelegate.swift in Sources */,
+				50336B5D228E44A60029268E /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
