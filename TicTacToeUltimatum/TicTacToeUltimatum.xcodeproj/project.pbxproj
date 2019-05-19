@@ -21,6 +21,10 @@
 		50E5BCAD2290AB010039AEEC /* MonteCarloTreeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5BCAC2290AB010039AEEC /* MonteCarloTreeSearch.swift */; };
 		50E5BCAE2290ACF90039AEEC /* MonteCarloTreeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5BCAC2290AB010039AEEC /* MonteCarloTreeSearch.swift */; };
 		50E5BCAF2290AD120039AEEC /* BoardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50336B58228E40C30029268E /* BoardState.swift */; };
+		50E5BCB42290B8830039AEEC /* monte_carlo_tree_search.c in Sources */ = {isa = PBXBuildFile; fileRef = 50E5BCB32290B8830039AEEC /* monte_carlo_tree_search.c */; };
+		50E5BCB52290B8830039AEEC /* monte_carlo_tree_search.c in Sources */ = {isa = PBXBuildFile; fileRef = 50E5BCB32290B8830039AEEC /* monte_carlo_tree_search.c */; };
+		50E5BCB72290BBAB0039AEEC /* BoardStateInt8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5BCB62290BBAB0039AEEC /* BoardStateInt8.swift */; };
+		50E5BCB82290BBAB0039AEEC /* BoardStateInt8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5BCB62290BBAB0039AEEC /* BoardStateInt8.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,11 @@
 		50336B5C228E44A60029268E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		50336B5E228E44BA0029268E /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		50E5BCAC2290AB010039AEEC /* MonteCarloTreeSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonteCarloTreeSearch.swift; sourceTree = "<group>"; };
+		50E5BCB02290B8820039AEEC /* TicTacToeUltimatum-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TicTacToeUltimatum-Bridging-Header.h"; sourceTree = "<group>"; };
+		50E5BCB12290B8820039AEEC /* TicTacToeUltimatumTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TicTacToeUltimatumTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		50E5BCB22290B8830039AEEC /* monte_carlo_tree_search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = monte_carlo_tree_search.h; sourceTree = "<group>"; };
+		50E5BCB32290B8830039AEEC /* monte_carlo_tree_search.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = monte_carlo_tree_search.c; sourceTree = "<group>"; };
+		50E5BCB62290BBAB0039AEEC /* BoardStateInt8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardStateInt8.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +112,11 @@
 				50336B5C228E44A60029268E /* SettingsViewController.swift */,
 				50336B5E228E44BA0029268E /* RulesViewController.swift */,
 				50E5BCAC2290AB010039AEEC /* MonteCarloTreeSearch.swift */,
+				50E5BCB22290B8830039AEEC /* monte_carlo_tree_search.h */,
+				50E5BCB32290B8830039AEEC /* monte_carlo_tree_search.c */,
+				50E5BCB02290B8820039AEEC /* TicTacToeUltimatum-Bridging-Header.h */,
+				50E5BCB12290B8820039AEEC /* TicTacToeUltimatumTests-Bridging-Header.h */,
+				50E5BCB62290BBAB0039AEEC /* BoardStateInt8.swift */,
 			);
 			path = TicTacToeUltimatum;
 			sourceTree = "<group>";
@@ -166,9 +180,11 @@
 				TargetAttributes = {
 					5020FB90228E24600027C675 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 					5020FBA4228E24600027C675 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 5020FB90228E24600027C675;
 					};
 				};
@@ -220,7 +236,9 @@
 				50336B5F228E44BA0029268E /* RulesViewController.swift in Sources */,
 				50336B59228E40C30029268E /* BoardState.swift in Sources */,
 				50336B57228E40AD0029268E /* BoardView.swift in Sources */,
+				50E5BCB72290BBAB0039AEEC /* BoardStateInt8.swift in Sources */,
 				5020FB97228E24600027C675 /* ViewController.swift in Sources */,
+				50E5BCB42290B8830039AEEC /* monte_carlo_tree_search.c in Sources */,
 				50336B5B228E40D90029268E /* AI.swift in Sources */,
 				5020FB95228E24600027C675 /* AppDelegate.swift in Sources */,
 				50336B5D228E44A60029268E /* SettingsViewController.swift in Sources */,
@@ -233,7 +251,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				50E5BCAF2290AD120039AEEC /* BoardState.swift in Sources */,
+				50E5BCB52290B8830039AEEC /* monte_carlo_tree_search.c in Sources */,
 				5020FBAA228E24600027C675 /* TicTacToeUltimatumTests.swift in Sources */,
+				50E5BCB82290BBAB0039AEEC /* BoardStateInt8.swift in Sources */,
 				50E5BCAE2290ACF90039AEEC /* MonteCarloTreeSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,8 +408,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83396K5CDA;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = TicTacToeUltimatum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -398,6 +420,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.khrapov.TicTacToeUltimatum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TicTacToeUltimatum/TicTacToeUltimatum-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -407,8 +431,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83396K5CDA;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = TicTacToeUltimatum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -417,6 +443,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.khrapov.TicTacToeUltimatum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TicTacToeUltimatum/TicTacToeUltimatum-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -427,6 +454,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83396K5CDA;
 				INFOPLIST_FILE = TicTacToeUltimatumTests/Info.plist;
@@ -437,6 +465,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.khrapov.TicTacToeUltimatumTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TicTacToeUltimatum/TicTacToeUltimatumTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TicTacToeUltimatum.app/TicTacToeUltimatum";
@@ -448,6 +478,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83396K5CDA;
 				INFOPLIST_FILE = TicTacToeUltimatumTests/Info.plist;
@@ -458,6 +489,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.khrapov.TicTacToeUltimatumTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TicTacToeUltimatum/TicTacToeUltimatumTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TicTacToeUltimatum.app/TicTacToeUltimatum";

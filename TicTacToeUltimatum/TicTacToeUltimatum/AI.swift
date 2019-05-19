@@ -78,7 +78,7 @@ final class AI {
         case 1: aiIterations = 100
         case 2: aiIterations = 200
         case 3: aiIterations = 400
-        case 4: aiIterations = 800
+        case 4: aiIterations = 1000
         default: aiIterations = 100
         }
         

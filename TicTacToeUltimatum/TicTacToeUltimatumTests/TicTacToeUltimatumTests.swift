@@ -38,4 +38,12 @@ class TicTacToeUltimatumTests: XCTestCase {
         let result = aiEngine.basic(10000)
         print(result)
     }
+    
+    
+    func testCalcOpeningMoveWithC() {
+        let boardState = BoardState()
+        let aiEngine = MonteCarloTreeSearch(boardState)
+        let result = aiEngine.bridge_to_c(10000)
+        print(result)
+    }
 }
