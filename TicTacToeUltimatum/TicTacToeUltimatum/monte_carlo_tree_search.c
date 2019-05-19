@@ -32,7 +32,6 @@
 #define DONE 3
 
 int calc_legal_moves(board_state *, int *);
-board_state *clone(board_state *);
 void set(board_state *, int);
 int playout(board_state *);
 int is_terminal(board_state *);
@@ -71,7 +70,6 @@ int list_of_indexes[8][3] = {
 };
 
 
-/* OK */
 int monte_carlo_tree_search(int iter_count, board_state *bs) {
     float scores[81];
     int legal_move_count;
@@ -84,20 +82,21 @@ int monte_carlo_tree_search(int iter_count, board_state *bs) {
     }
     
     legal_move_count = calc_legal_moves(bs, legal_moves);
+    board_state child;
     
     for(int counter = 0; counter < iter_count; counter++) {
         for(int move_idx = 0; move_idx < legal_move_count; move_idx++) {
             int move = legal_moves[move_idx];
-            board_state *child = clone(bs);
-            set(child, move);
-            winner = playout(child);
+            memcpy(&child, bs, sizeof(board_state));
+            set(&child, move);
+            winner = playout(&child);
             if (winner == bs->player) {
                 scores[move] += 1.0;
             }
             else if (winner == DONE) {
                 scores[move] += 0.05;
             }
-            free(child);
+            
         }
         
         /*
@@ -122,15 +121,6 @@ int monte_carlo_tree_search(int iter_count, board_state *bs) {
 }
 
 
-/* OK */
-board_state *clone(board_state *bs) {
-    board_state *child = (board_state *) malloc(sizeof(board_state));
-    memcpy(child, bs, sizeof(board_state));
-    return child;
-}
-
-
-/* OK */
 /* legal_moves is an array of 81 ints */
 int calc_legal_moves(board_state *bs, int *legal_moves) {
     int counter = 0;
@@ -144,7 +134,6 @@ int calc_legal_moves(board_state *bs, int *legal_moves) {
 }
 
 
-/* OK */
 void set(board_state *bs, int move) {
     if(legal_move(bs, move) == 0) {
         return;
@@ -198,7 +187,7 @@ void set(board_state *bs, int move) {
     }
 }
 
-/* OK */
+
 int playout(board_state *bs) {
     int legal_move_count;
     int legal_moves[81];
@@ -219,7 +208,7 @@ int playout(board_state *bs) {
     return bs->gameWon;
 }
 
-/* OK */
+
 int is_terminal(board_state *bs) {
     if(bs->gameWon != OPEN) {
         return 1;
@@ -227,7 +216,7 @@ int is_terminal(board_state *bs) {
     return 0;
 }
 
-/* OK */
+
 int random_int(int limit) {
     static int been_called = 0;
     
@@ -240,7 +229,6 @@ int random_int(int limit) {
 }
 
 
-/* OK */
 int legal_move(board_state *bs, int move) {
     if(bs->gameWon != OPEN) {
         return 0;
@@ -266,7 +254,6 @@ int legal_move(board_state *bs, int move) {
 }
 
 
-/* OK */
 int own_section(int move) {
     int y = move / 9;
     int x = move % 9;
@@ -274,7 +261,6 @@ int own_section(int move) {
 }
 
 
-/* OK */
 int target_section(int move) {
     int y = move / 9;
     int x = move % 9;
@@ -282,7 +268,6 @@ int target_section(int move) {
 }
 
 
-/* OK */
 int won(board_state *bs, int player, int sec) {
     for(int row = 0; row < 8; row++) {  /* row in list_of_indexes */
         int relative_position1 = list_of_indexes[row][0];
@@ -306,7 +291,6 @@ int won(board_state *bs, int player, int sec) {
 }
 
 
-/* OK */
 int entire_game_won_by(board_state *bs, int player) {
     for(int row = 0; row < 8; row++) {  /* row in list_of_indexes */
         int sec1 = list_of_indexes[row][0];
@@ -326,7 +310,6 @@ int entire_game_won_by(board_state *bs, int player) {
 }
 
 
-/* OK */
 int entire_board_is_full(board_state *bs) {
     for(int sec = 0; sec < 9; sec++) {
         if(bs->closedSegments[sec] == OPEN) {
@@ -337,7 +320,6 @@ int entire_board_is_full(board_state *bs) {
 }
 
 
-/* OK */
 int full(board_state *bs, int sec) {
     for(int i = 0; i < 9; i++) {
         int location = section_locations[sec][i];
@@ -349,7 +331,6 @@ int full(board_state *bs, int sec) {
 }
 
 
-/* OK */
 void pretty_print(float *scores) {
     for(int y = 0; y < 9; y++) {
         for(int x = 0; x < 9; x++) {
