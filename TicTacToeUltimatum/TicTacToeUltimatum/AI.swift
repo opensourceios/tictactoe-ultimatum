@@ -83,7 +83,7 @@ final class AI {
         }
         
         let aiEngine = MonteCarloTreeSearch(givenBoardState)
-        return aiEngine.basic(aiIterations)
+        return aiEngine.bridge_to_c(aiIterations)
     }
     
 }
