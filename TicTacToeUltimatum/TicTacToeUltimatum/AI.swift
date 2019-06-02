@@ -30,7 +30,7 @@ final class AI {
     
     
     func respondFast() -> (Int, Int) {
-        let moves = [(3,3), (3, 5), (5,3), (5,5)]
+        let moves = [(3,3), (3,5), (5,3), (5,5), (4,4)]
         let randomIndex = Int.random(in: 0..<moves.count)
         return moves[randomIndex]
     }
