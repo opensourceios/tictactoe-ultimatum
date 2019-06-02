@@ -19,13 +19,29 @@
 
 import Foundation
 import UIKit
+import WebKit
 
-class RulesViewController: UIViewController {
+class RulesViewController: UIViewController, WKUIDelegate {
+    
+    var webView: WKWebView!
+    
+    
+    override func loadView() {
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView.uiDelegate = self
+        view = webView
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "How to Play"
         
-        navigationItem.title = "Rules"
+        let url = Bundle.main.url(forResource: "how_to_play", withExtension: "html", subdirectory: "www")!
+        webView.loadFileURL(url, allowingReadAccessTo: url)
+        let request = URLRequest(url: url)
+        webView.load(request)
     }
     
     
