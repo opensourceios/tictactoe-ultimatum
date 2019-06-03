@@ -244,8 +244,8 @@ final class BoardState {
     
     
     func entireBoardIsFull() -> Bool {
-        for i in cells {
-            if i == 0 {
+        for i in closedSegments {
+            if i == OPEN {
                 return false
             }
         }

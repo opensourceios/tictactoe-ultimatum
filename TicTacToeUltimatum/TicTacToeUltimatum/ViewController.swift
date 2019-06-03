@@ -130,9 +130,14 @@ class ViewController: UIViewController {
                             self.boardStateHistory.append(nextBoardState2)
                             if nextBoardState2.set(x, y) {
                                 boardView.setBoardState(nextBoardState2)
-                                boardView.setNeedsDisplay()
                                 self.unfreezeUIandDismissOverlay()
+                                boardView.setNeedsDisplay()
                             }
+                        }
+                        else {
+                            // unfreeze UI anyway
+                            self.unfreezeUIandDismissOverlay()
+                            boardView.setNeedsDisplay()
                         }
                     })
                 }
