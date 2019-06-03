@@ -32,6 +32,8 @@
 #define DONE 3
 
 int calc_legal_moves(board_state *, int *);
+int calc_smart_moves(board_state *, int *, int, int *);
+int is_smart_move(board_state *, int);
 void set(board_state *, int);
 int playout(board_state *);
 int is_terminal(board_state *);
@@ -75,18 +77,39 @@ int monte_carlo_tree_search(int iter_count, board_state *bs) {
     int legal_move_count;
     int legal_moves[81];
     int winner;
+    int smart_move_count; // smart move is a move that does not immediately result in opponent win
+    int smart_moves[81];
+    board_state child;
     
     for(int i = 0; i < 81; i++) {
         scores[i] = 0.0;
         legal_moves[i] = -1;
+        smart_moves[i] = -1;
     }
     
     legal_move_count = calc_legal_moves(bs, legal_moves);
-    board_state child;
+    
+    /*
+        check for dumb moves
+        if all moves are dumb - pick ramdom move from all legal moves
+        if only one move not dumb - use that
+        if two or moves are not dumb - run Monte Carlo Tree Search to pick among those
+     */
+    
+    smart_move_count = calc_smart_moves(bs, legal_moves, legal_move_count, smart_moves);
+    
+    if(smart_move_count == 0) {
+        return legal_moves[random_int(legal_move_count)];
+    }
+    else if(smart_move_count == 1) {
+        return smart_moves[0];
+    }
+    
+    // else pick from two or more smart moves
     
     for(int counter = 0; counter < iter_count; counter++) {
-        for(int move_idx = 0; move_idx < legal_move_count; move_idx++) {
-            int move = legal_moves[move_idx];
+        for(int move_idx = 0; move_idx < smart_move_count; move_idx++) {
+            int move = smart_moves[move_idx];
             memcpy(&child, bs, sizeof(board_state));
             set(&child, move);
             winner = playout(&child);
@@ -118,6 +141,53 @@ int monte_carlo_tree_search(int iter_count, board_state *bs) {
     }
     
     return winning_move;
+}
+
+
+int calc_smart_moves(board_state *bs, int *legal_moves, int legal_move_count, int *smart_moves) {
+    int counter = 0;
+    
+    for(int move_idx = 0; move_idx < legal_move_count; move_idx++) {
+        int move = legal_moves[move_idx];
+        if(is_smart_move(bs, move) == 1) {
+            smart_moves[counter] = move;
+            counter++;
+        }
+    }
+    
+    return counter;
+}
+
+
+int is_smart_move(board_state *bs, int move) {
+    board_state current;
+    board_state child;
+    memcpy(&current, bs, sizeof(board_state));
+    set(&current, move);
+    int opponent = current.player;
+    if(is_terminal(&current) == 1) {
+        return 1;
+    }
+    
+    int legal_move_count;
+    int legal_moves[81];
+    
+    for(int i = 0; i < 81; i++) {
+        legal_moves[i] = -1;
+    }
+    
+    legal_move_count = calc_legal_moves(&current, legal_moves);
+    
+    for(int move_idx = 0; move_idx < legal_move_count; move_idx++) {
+        int child_move = legal_moves[move_idx];
+        memcpy(&child, &current, sizeof(board_state));
+        set(&child, child_move);
+        if(is_terminal(&child) == 1 && child.gameWon == opponent) {
+            return 0;
+        }
+    }
+    
+    return 1;
 }
 
 

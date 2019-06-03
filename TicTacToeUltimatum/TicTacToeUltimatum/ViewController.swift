@@ -197,35 +197,6 @@ class ViewController: UIViewController {
         
         var undoCount = 0
         
-        /*
-        if currentGameStyle == 0 {
-            // 2 humans playing
-            if boardStateHistory.count > 1 {
-                boardStateHistory.removeLast()
-                boardView!.setBoardState(boardStateHistory.last!)
-                boardView!.setNeedsDisplay()
-            }
-        }
-        else if currentGameStyle == 1 {
-            // AI plays crosses (first)
-            if boardStateHistory.count > 2 {
-                boardStateHistory.removeLast()
-                boardStateHistory.removeLast()
-                boardView!.setBoardState(boardStateHistory.last!)
-                boardView!.setNeedsDisplay()
-            }
-        }
-        else if currentGameStyle == 2 {
-            // AI plays noughts
-            if boardStateHistory.count > 1 {
-                boardStateHistory.removeLast()
-                boardStateHistory.removeLast()
-                boardView!.setBoardState(boardStateHistory.last!)
-                boardView!.setNeedsDisplay()
-            }
-        }
-        */
-        
         if currentGameStyle == 0 {
             // 2 humans playing
             if boardStateHistory.count > 1 {
